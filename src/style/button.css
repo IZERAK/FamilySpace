@@ -28,9 +28,14 @@ button {
   color: black;
 }
 
-button:disabled {
-  color: #b38a6a;
-  background-color: #ffe2cc;
+.secondary-button > button:disabled {
+  border: 2px solid rgb(200, 200, 200);
+  color: rgb(200, 200, 200);
+  pointer-events: none;
+  transition: ease-in 200ms;
+}
+.mainbutton > button:disabled {
+  background-color: rgb(200, 200, 200);
   pointer-events: none;
   transition: ease-in 200ms;
 }
