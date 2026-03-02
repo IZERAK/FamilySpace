@@ -1,0 +1,22 @@
+.home-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+.top {
+  display: flex;
+  width: 100%;
+  background-color: #fff0e5;
+  height: 10%;
+}
+.center {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.left {
+  display: flex;
+  width: 10%;
+  height: 100%;
+}

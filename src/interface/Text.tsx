@@ -1,5 +1,5 @@
-export default interface Text {
-  variant?: string;
+import type Base from "./Base";
+
+export default interface Text extends Base {
   text: string;
-  dataTestId: string; // Лучше сделать опциональным, если не всегда передается
 }

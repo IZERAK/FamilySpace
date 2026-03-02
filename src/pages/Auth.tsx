@@ -1,51 +1,41 @@
-import { useState } from "react";
 import "../style/auth.css";
-import Header from "../UI/Header";
+import Title from "../UI/Title";
 import InputComponent from "../UI/Input";
 import Label from "../UI/Label";
 import MainButton from "../UI/MainButton";
 import SecondaryButon from "../UI/SecondaryButon";
+import { useNavigate } from "react-router";
 
 export default function Auth() {
-  const [dis, setDis] = useState(false);
+  const nav = useNavigate();
 
   return (
-    <div className="auth">
-      <div className="form">
-        <Header
-          variant="auth-header"
-          dataTestId="header-auth"
-          text="Авторизация"
-        ></Header>
-        <div className="group-field">
-          <Label dataTestId="login-label-auth" text="Логин"></Label>
+    <div className="auth page">
+      <div className="auth form">
+        <Title dataTestId="auth title" text="Авторизация"></Title>
+        <div className="auth group-field">
+          <Label dataTestId="auth label-login" text="Логин"></Label>
           <InputComponent
-            dataTestId="input-login"
+            dataTestId="auth input-login"
             type="text"
-            isDisabled={dis}
           ></InputComponent>
-          <Label dataTestId="login-label-password" text="Пароль"></Label>
+          <Label dataTestId="auth label-password" text="Пароль"></Label>
           <InputComponent
-            dataTestId="input-passwrod"
+            dataTestId="auth input-password"
             type="password"
-            isDisabled={dis}
           ></InputComponent>
         </div>
-        <div className="group-btn">
+        <div className="auth group-button">
           <MainButton
-            dataTestId="auth-button"
+            dataTestId="auth button-enter"
             text="Войти"
-            isDisabled={dis}
-            fn={() => {
-              console.log("Вошёл");
-            }}
+            fn={() => {nav('/home')}}
           ></MainButton>
           <SecondaryButon
-            dataTestId="reg-button"
+            dataTestId="auth button-register"
             text="Регистрация"
-            isDisabled={dis}
             fn={() => {
-              console.log("Новый аккаунт");
+              nav("/reg");
             }}
           ></SecondaryButon>
         </div>
