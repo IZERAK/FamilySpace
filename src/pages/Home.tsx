@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import "../style/home.css";
 
 export default function Home() {
+
   return (
     <div className="home-page">
       <div className="top">

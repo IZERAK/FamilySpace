@@ -4,4 +4,6 @@ export default interface Input extends Base {
   placeholder?: string;
   isDisabled?: boolean;
   type?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

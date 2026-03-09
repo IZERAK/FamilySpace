@@ -1,0 +1,10 @@
+{
+  "users": [
+    { "id": 1, "username": "test", "password": "TestPass2026!Local#Dev" },
+    {
+      "id": 2,
+      "username": "test2",
+      "password": "qwerty"
+    }
+  ]
+}

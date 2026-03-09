@@ -1,5 +1,5 @@
 import type Input from "../interface/Input";
-import "../style/input.css"
+import "../style/input.css";
 
 export default function InputComponent({
   variant,
@@ -7,6 +7,8 @@ export default function InputComponent({
   placeholder,
   isDisabled,
   type,
+  value,
+  onChange,
 }: Input) {
   return (
     <div className={variant || "" + "input"} data-test-id={dataTestId}>
@@ -14,6 +16,8 @@ export default function InputComponent({
         type={type}
         placeholder={placeholder}
         disabled={isDisabled}
+        value={value}
+        onChange={onChange}
       ></input>
     </div>
   );
