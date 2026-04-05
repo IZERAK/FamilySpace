@@ -1,4 +1,4 @@
-import { Pool, PoolClient } from 'pg'; // Импортируем типы
+import { Pool, PoolClient } from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();

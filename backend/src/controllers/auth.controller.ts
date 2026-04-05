@@ -11,7 +11,20 @@ class AuthController {
         user
       });
     } catch (error) {
-      // Передаем ошибку в глобальный обработчик ошибок
+      next(error);
+    }
+  }
+
+  // Добавляем метод login
+  async login(req: Request, res: Response, next: NextFunction) {
+    try {
+      const authData = await AuthService.login(req.body);
+      
+      res.status(200).json({
+        message: 'Login successful',
+        ...authData
+      });
+    } catch (error) {
       next(error);
     }
   }

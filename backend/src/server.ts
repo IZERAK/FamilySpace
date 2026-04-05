@@ -1,30 +1,29 @@
-import express from "express";
-import dotenv from "dotenv";
-import pool from "./config/db";
-import routes from "./routes/index";
-import errorMiddleware from "./middleware/error.middleware"; // Добавлено .js
+import express from 'express';
+import dotenv from 'dotenv';
+import pool from './config/db';
+import routes from './routes/index';
+import errorMiddleware from './middleware/error.middleware';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from './config/swagger'; // Импортируем спеку
 
-// Загрузка переменных окружения
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(express.json());
 
-// Routes
-app.use("/api", routes);
+// Swagger UI доступен по адресу /api-docs
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Global Error Handler
+app.use('/api', routes);
 app.use(errorMiddleware);
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`📄 Swagger Docs available at http://localhost:${PORT}/api-docs`);
+  });
+}
 
-// Проверка подключения к БД (опционально, можно убрать из server.ts в config)
-pool.on("connect", () => {
-  console.log("✅ Connected to Local Dev DB");
-});
+export default app;
